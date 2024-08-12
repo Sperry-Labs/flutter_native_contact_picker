@@ -2,7 +2,7 @@ group 'com.jayesh.flutter_contact_picker'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.9.23'
     repositories {
         google()
         jcenter()
@@ -26,7 +26,8 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "com.jayesh.flutter_contact_picker"
-    compileSdkVersion 28
+    compileSdkVersion 34
+    ndkVersion "26.1.10909125"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -36,6 +37,15 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
